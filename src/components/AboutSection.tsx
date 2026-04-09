@@ -48,7 +48,7 @@ const FeatureCard = ({ f, i, inView }: { f: typeof features[0]; i: number; inVie
           height={600}
           animate={{ scale: hovered ? 1.1 : 1 }}
           transition={{ duration: 0.7 }}
-          className="w-full h-64 object-cover object-top"
+          className="w-full h-64 object-cover object-center"
         />
         <motion.div
           animate={{ opacity: hovered ? 0.05 : 0.2 }}
