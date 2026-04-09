@@ -22,8 +22,17 @@ import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
 
+const CART_CACHE_VERSION = "v2"; // bump this to force-clear stale cart data
+
 const AppContent = () => {
   useCartSync();
+
+  // One-time cart clear when cache version changes
+  if (localStorage.getItem("cart-cache-version") !== CART_CACHE_VERSION) {
+    localStorage.removeItem("shopify-cart");
+    localStorage.setItem("cart-cache-version", CART_CACHE_VERSION);
+    window.location.reload();
+  }
 
   return (
     <BrowserRouter>
