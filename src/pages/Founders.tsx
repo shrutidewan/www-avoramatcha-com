@@ -15,9 +15,30 @@ const fadeUp = {
   }),
 };
 
+// You can adjust this value to move the background image on mobile screens
+// (e.g., '10% 20%', '10% 30%', or pixels like '10% calc(50% + 80px)')
+// Changing the second value (Y-axis) towards 0% brings it down, towards 100% pushes it up.
+const mobileBgPosition = '20% 50%';
+
 const Founders = () => {
   return (
     <div className="min-h-screen bg-primary">
+      <style>{`
+        .hero-bg-mobile-shift {
+          background-position: ${mobileBgPosition};
+          top: 20vh; /* Pulls the image down physically */
+          -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 20%);
+          mask-image: linear-gradient(to bottom, transparent 0%, black 20%);
+        }
+        @media (min-width: 768px) {
+          .hero-bg-mobile-shift {
+            background-position: center center !important;
+            top: 0 !important;
+            -webkit-mask-image: none !important;
+            mask-image: none !important;
+          }
+        }
+      `}</style>
 
       {/* Premium Hero Section with Background Image */}
       <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -29,10 +50,9 @@ const Founders = () => {
           className="absolute inset-0 z-0"
         >
           <div
-            className="absolute inset-0 bg-cover bg-center"
+            className="absolute inset-0 bg-cover hero-bg-mobile-shift"
             style={{
               backgroundImage: `url(${foundersProduct})`,
-              backgroundPosition: 'center center',
               backgroundSize: 'cover',
             }}
           />
@@ -55,7 +75,7 @@ const Founders = () => {
               >
                 Founders'
                 <br />
-                <span className="italic font-extralight">Note</span>
+                <span className="font-extralight">Note</span>
               </motion.h1>
 
               {/* Scroll Indicator */}
@@ -97,16 +117,16 @@ const Founders = () => {
               initial={{ opacity: 0, x: 60, scale: 0.95 }}
               animate={{ opacity: 1, x: 0, scale: 1 }}
               transition={{ duration: 1.2, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="relative hidden lg:flex items-center justify-center"
+              className="relative flex items-center justify-center order-first lg:order-none"
             >
               {/* Portrait Container */}
-              <div className="relative group">
+              <div className="relative group w-full flex justify-center">
                 {/* Ambient Glow Effect */}
                 <div className="absolute inset-0 bg-cream/8 blur-3xl scale-110 group-hover:bg-cream/12 transition-all duration-700" />
                 
                 {/* Image Container with Drop Shadow */}
                 <div 
-                  className="relative overflow-hidden"
+                  className="relative overflow-hidden w-full flex justify-center"
                   style={{
                     filter: 'drop-shadow(0 20px 50px rgba(0, 0, 0, 0.6)) drop-shadow(0 8px 20px rgba(0, 0, 0, 0.4))',
                   }}
@@ -115,7 +135,7 @@ const Founders = () => {
                   <motion.img
                     src={foundersHero}
                     alt="Founder - Shruti"
-                    className="relative w-full max-w-xl lg:max-w-2xl h-auto object-cover"
+                    className="relative w-4/5 md:w-full max-w-sm md:max-w-xl lg:max-w-2xl h-auto object-cover"
                     style={{
                       maskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 80%, rgba(0,0,0,0.3) 95%, rgba(0,0,0,0) 100%)',
                       WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 80%, rgba(0,0,0,0.3) 95%, rgba(0,0,0,0) 100%)',
