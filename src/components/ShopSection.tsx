@@ -53,7 +53,7 @@ const ShopSection = () => {
                   whileTap={{ scale: 0.97 }}
                   className="inline-block font-body text-sm tracking-widest text-cream border border-cream/40 px-10 py-4 hover:bg-cream/10 transition-all duration-500"
                 >
-                  Pre-Order Now
+                  Shop Now
                 </motion.span>
               </Link>
             </MagneticButton>

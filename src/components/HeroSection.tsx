@@ -72,7 +72,7 @@ const HeroSection = () => {
                 whileTap={{ scale: 0.97 }}
                 className="inline-block font-body text-xs tracking-widest text-cream border border-cream/40 px-7 py-2.5 hover:bg-cream/10 transition-all duration-500"
               >
-                Pre-Order Now
+                Shop Now
               </motion.span>
             </Link>
           </div>

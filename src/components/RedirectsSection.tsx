@@ -14,7 +14,7 @@ const REDIRECTS = [
         title: 'Shop Avora',
         body: "Experience the finest ceremonial-grade matcha. Sourced directly from Japan's most prestigious tea gardens, our matcha brings authentic tradition to your cup.",
         image: matchaLatteImg,
-        buttonText: 'Pre-Order Now',
+        buttonText: 'Shop Now',
         buttonLink: '/product/ceremonial-matcha',
     },
     {
