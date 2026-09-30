@@ -7,6 +7,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Navbar from "@/components/Navbar";
 import ScrollToTop from "@/components/ScrollToTop";
 import Footer from "@/components/Footer";
+import RouteSeo from "@/components/RouteSeo";
 import CustomCursor from "@/components/CustomCursor";
 import IntroAnimation from "@/components/IntroAnimation";
 import { useCartSync } from "@/hooks/useCartSync";
@@ -37,6 +38,7 @@ const AppContent = () => {
   return (
     <BrowserRouter>
       <ScrollToTop />
+      <RouteSeo />
       <Navbar />
       <Routes>
         <Route path="/" element={<Index />} />
